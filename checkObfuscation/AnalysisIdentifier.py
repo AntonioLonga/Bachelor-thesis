@@ -5,13 +5,33 @@ rareBigram=set()
 
 class AnalysisIdentifier:
 
+
+    
+    def checkObfuscate(self,input):
+        #contiene la % di parole con lung minore uguale a 3
+        lengthWord=self.lengthWord(input)
+        #contiene la % di parole ripetute
+        repetuteWord=self.percentageRepetuteWord(input)
+        #contiene la & di voale su tutti i caratteri
+        countVowel=self.percentageCountVowel(input)
+        #contiene lunghezza media degli identificatori
+        averageLength=self.averageWordsLength(input)
+        #contiene la % di bigrammi rari
+        rareBigram=self.percentageRareBigram(input)
+        print (lengthWord)
+        print (repetuteWord)
+        print (countVowel)
+        print (averageLength)
+        print (rareBigram)
+    
+
    
 
     """Return percentage of words that have length less or equals than 3 characters
     This method take an array of words as input, and return percenage of word that
     have length less or equals than tresholder, the tresholder is set on 3 
     """
-    def lengthWord(input):
+    def lengthWord(self,input):
         
         inputLength=len(input)
         lessTresholder=0
@@ -27,7 +47,7 @@ class AnalysisIdentifier:
     """Return percentage of repetute words 
     This method take an array of words as input, and return percenage of repetute word  
     """   
-    def percentageRepertuteWord(input):
+    def percentageRepetuteWord(self,input):
     
         wordSet=set()
 
@@ -48,7 +68,7 @@ class AnalysisIdentifier:
 
     """Return number of vowel in a list of word 
     """
-    def percentageCountVowel(input):
+    def percentageCountVowel(self,input):
         vowels= {"a","e","i","o","u"}
         vowelsCount=0
         totalCharacter=0
@@ -67,7 +87,7 @@ class AnalysisIdentifier:
         return (percentage)
 
 
-    def averageWordsLength(input):
+    def averageWordsLength(self,input):
         totalLength=0
         for word in input:
             totalLength=totalLength+len(word)
@@ -78,7 +98,7 @@ class AnalysisIdentifier:
 
 
 
-    def countRareBigram(input):
+    def percentageRareBigram(self,input):
         countRareBigrams=0
         totalBigrams=0
         bigramSet=getRareBigramFromFile()
@@ -107,5 +127,7 @@ def getRareBigramFromFile():
     f.close()
             
     return (rareBigram)
-         
-    
+
+
+
+

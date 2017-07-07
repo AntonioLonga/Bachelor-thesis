@@ -16,19 +16,22 @@ identifier=FindIdentifier().start(path)
 
 #print (identifier)
 
-lengthWord=AnalysisIdentifier.lengthWord(identifier)
-print ("percentuale della parole con lunghezza <=3: "+str(lengthWord))
+#lengthWord=AnalysisIdentifier.lengthWord(identifier)
+#print ("percentuale della parole con lunghezza <=3: "+str(lengthWord))
 
-repetuteWord=AnalysisIdentifier.percentageRepertuteWord(identifier)
-print ("percentale di parole ripetute: "+str(repetuteWord))
-
-
-vowelCount=AnalysisIdentifier.percentageCountVowel(identifier)
-print ("percentale di vocale su tutti i caratteri: "+str(vowelCount))
-
-average=AnalysisIdentifier.averageWordsLength(identifier)
-print ("lunghezza media delle parole: "+str(average))
+#repetuteWord=AnalysisIdentifier.percentageRepertuteWord(identifier)
+#print ("percentale di parole ripetute: "+str(repetuteWord))
 
 
-rareBigram=AnalysisIdentifier.countRareBigram(identifier)
-print ("percentuale di bigrammi rari: "+str(rareBigram))
+#vowelCount=AnalysisIdentifier.percentageCountVowel(identifier)
+#print ("percentale di vocale su tutti i caratteri: "+str(vowelCount))
+
+#average=AnalysisIdentifier.averageWordsLength(identifier)
+#print ("lunghezza media delle parole: "+str(average))
+
+
+#rareBigram=AnalysisIdentifier.countRareBigram(identifier)
+#print ("percentuale di bigrammi rari: "+str(rareBigram))
+
+
+AnalysisIdentifier().checkObfuscate(identifier)
