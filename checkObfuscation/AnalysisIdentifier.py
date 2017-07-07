@@ -1,8 +1,11 @@
+import os
+import re
 
-
-
+rareBigram=set()
 
 class AnalysisIdentifier:
+
+   
 
     """Return percentage of words that have length less or equals than 3 characters
     This method take an array of words as input, and return percenage of word that
@@ -58,9 +61,51 @@ class AnalysisIdentifier:
         
 
         percentage=(100*vowelsCount)/totalCharacter
-        percentage = float("{0:.2f}".format(percentage))
+        percentage = float("{0:.3f}".format(percentage))
 
                 
         return (percentage)
+
+
+    def averageWordsLength(input):
+        totalLength=0
+        for word in input:
+            totalLength=totalLength+len(word)
+
+        average=totalLength/len(input)
+        return (average)
+
+
+
+
+    def countRareBigram(input):
+        countRareBigrams=0
+        totalBigrams=0
+        bigramSet=getRareBigramFromFile()
+
+        for word in input:
+            for i in range(0,len(word)-1):
+                totalBigrams=totalBigrams+1
+                bigram=(word[i]+word[i+1])
+                if bigram in bigramSet:
+                    countRareBigrams=countRareBigrams+1
     
+        
+        percentage=(100*countRareBigrams)/totalBigrams
+        percentage=float("{0:2f}".format(percentage))
+        return (percentage)
+
+
+def getRareBigramFromFile():
+    
+    with open("rareBigram/rareBigram.txt") as f:
+        for bigram in f:
+            big=re.match("(\w\w)(\w*)",bigram)
+            if big:
+                rareBigram.add(big.group(1))
+            
+    f.close()
+            
+    return (rareBigram)
+         
     

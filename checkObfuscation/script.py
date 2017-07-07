@@ -25,3 +25,10 @@ print ("percentale di parole ripetute: "+str(repetuteWord))
 
 vowelCount=AnalysisIdentifier.percentageCountVowel(identifier)
 print ("percentale di vocale su tutti i caratteri: "+str(vowelCount))
+
+average=AnalysisIdentifier.averageWordsLength(identifier)
+print ("lunghezza media delle parole: "+str(average))
+
+
+rareBigram=AnalysisIdentifier.countRareBigram(identifier)
+print ("percentuale di bigrammi rari: "+str(rareBigram))
