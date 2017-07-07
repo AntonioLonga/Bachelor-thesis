@@ -1,4 +1,5 @@
 from FindIdentifier import FindIdentifier
+from AnalysisIdentifier import AnalysisIdentifier
 import sys
 import re
 import os
@@ -11,11 +12,16 @@ import os
 
 path=sys.argv[1]
 
+identifier=FindIdentifier().start(path)
+
+#print (identifier)
+
+lengthWord=AnalysisIdentifier.lengthWord(identifier)
+print ("percentuale della parole con lunghezza <=3: "+str(lengthWord))
+
+repetuteWord=AnalysisIdentifier.percentageRepertuteWord(identifier)
+print ("percentale di parole ripetute: "+str(repetuteWord))
 
 
-
-
-FindIdentifier().start(path)
-
-
-
+vowelCount=AnalysisIdentifier.percentageCountVowel(identifier)
+print ("percentale di vocale su tutti i caratteri: "+str(vowelCount))

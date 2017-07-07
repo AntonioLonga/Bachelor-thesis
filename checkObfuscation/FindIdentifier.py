@@ -15,7 +15,7 @@ class FindIdentifier:
 
             for element in files:
                 if (re.match("\w*.smali",element)):
-                    print ("smali: "+element)
+                    #print ("smali: "+element)
                     self.searchInsideFile(path+"/"+element)
                 else:
                     self.searchSmaliCode(path+"/"+element)
@@ -35,17 +35,18 @@ class FindIdentifier:
         
         with open(smalipath) as infile:
             for line in infile:
+                notIdentifier={"constructor","static","abstract","final"}
                 method=re.match(patternMetodo,line)
                 variable=re.match(patternVariabile,line)
                 classe=re.match(patternClasse,line)
-                if (method and not(method.group(2)=="constructor" or method.group(2)=="static" or method.group(2)=="abstract" or method.group(2)=="final")):
-                    print ("nome del metodo: "+method.group(2))
+                if (method and not(method.group(2) in (notIdentifier))):
+                    #print ("nome del metodo: "+method.group(2))
                     self.res.append(method.group(2))
                 if variable:
-                    print ("nome della variabile: "+variable.group(4))
+                    #print ("nome della variabile: "+variable.group(4))
                     self.res.append(variable.group(4))
                 if classe:
-                    print ("nome della classe: "+classe.group(1))
+                    #print ("nome della classe: "+classe.group(1))
                     self.res.append(classe.group(1))
     def start(self,path):
         folder=os.listdir(path)
@@ -63,4 +64,4 @@ class FindIdentifier:
                        self.searchSmaliCode(path+"/com")
 
 
-        print(self.res)
+        return (self.res)
