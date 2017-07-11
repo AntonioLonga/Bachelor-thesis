@@ -18,11 +18,11 @@ class AnalysisIdentifier:
         percenageLength=self.percenageWordsLength(input)
         #contiene la % di bigrammi rari
         rareBigram=self.percentageRareBigram(input)
-        print ("% di parole con lung. <= a 3: "+str(lengthWord))
-        print ("% di identificatori ripetuti: "+str(repetuteWord))
-        print ("% parole con meno del 25% di vocali: "+str(countVowel))
-        print ("% di parole con lung. <= a 9: "+str(percenageLength))
-        print ("% di bigrammi rari: "+str(rareBigram))
+        #print ("% di parole con lung. <= a 3: "+str(lengthWord))
+        #print ("% di identificatori ripetuti: "+str(repetuteWord))
+        #print ("% parole con meno del 25% di vocali: "+str(countVowel))
+        #print ("% di parole con lung. <= a 9: "+str(percenageLength))
+        #print ("% di bigrammi rari: "+str(rareBigram))
 
 
         #range identificatori piu corti di 3 caratteri
@@ -39,8 +39,16 @@ class AnalysisIdentifier:
         percLength= (self.average(15.43,50.35,percenageLength))
         bigram=(self.average(0.28,5.65,rareBigram))
 
-        totalProbability=(length+repetute+vocali+percLength+bigram)/5
-        print ("probabilità che sia offuscato: "+str(totalProbability))
+        identifier1=(length+repetute+vocali+percLength+bigram)/5
+        print ("Indicatore di offuscamento con media pesata")
+        print(identifier1)
+
+        identifier2=(self.average2(length,repetute,vocali,percLength,bigram))
+        print ("Indicatore di offuscamento con metodo 2")
+        print (identifier2)
+
+
+        
 
    
     """Return percentage of words that have length less or equals than 3 characters
@@ -48,23 +56,56 @@ class AnalysisIdentifier:
     have length less or equals than tresholder, the tresholder is set on 3"""     
     def lengthWord(self,input):
                
-        
+        percentage=0;
         inputLength=len(input)
         lessTresholder=0
         for element in input:
             if len(element) <= 3 :
                 lessTresholder=lessTresholder+1
-
-        percentage= (100*lessTresholder)/inputLength
-        percentage = float("{0:.2f}".format(percentage))
+        if inputLength==0:
+            percentage= 0
+        else:
+            percentage= (100*lessTresholder)/inputLength
+            percentage = float("{0:.2f}".format(percentage))
         return (percentage)
 
     def average(self,lower,upper, value):
-
         result= (value-lower)/(upper-lower)
-
         return result;
-        
+
+    def average2(self,leng,rep,vow,percLen,big):
+        value=0
+        if (leng<=0.93):
+            value=value-1
+        elif (leng>=25.72):
+            value=value+1
+
+        if (rep<=15.45):
+            value=value-1
+        elif(rep>=50.35):
+            value=value+1
+
+        if (vow>=30.75):
+            value=value-1
+        elif (vow<=20.8):
+            value=value+1
+
+        if (percLen<=15.45):
+            value=value-1
+        elif (percLen>=50.35):
+            value=value+1
+
+        if (big<=0.28):
+            value=value-1
+        elif (big>=5.65):
+            value=value+1
+
+
+        value= (value+5)/10
+        return (value)
+            
+            
+            
     
     """Return percentage of repetute words 
     This method take an array of words as input, and return percenage of repetute word  
@@ -79,9 +120,12 @@ class AnalysisIdentifier:
 
         inputLength=len(input)
         nonRepetute=len(wordSet)
-        repetuteWord=inputLength-nonRepetute        
-        percentage=(100*repetuteWord)/inputLength
-        percentage = float("{0:.2f}".format(percentage))
+        repetuteWord=inputLength-nonRepetute
+        if inputLength==0:
+            percentage=0
+        else:
+            percentage=(100*repetuteWord)/inputLength
+            percentage = float("{0:.2f}".format(percentage))
 
 
         return percentage
@@ -109,9 +153,11 @@ class AnalysisIdentifier:
                 tempPercentage=(100*wordVowel)/wordChar
             if tempPercentage<25:
                 vowelsCount=vowelsCount+1
-
-        percentage=(100*vowelsCount)/totalWord
-        percentage = float("{0:.3f}".format(percentage))
+        if totalWord==0:
+            percentage=0
+        else:
+            percentage=(100*vowelsCount)/totalWord
+            percentage = float("{0:.3f}".format(percentage))
 
         return (percentage)
 
@@ -124,9 +170,11 @@ class AnalysisIdentifier:
             if (len(word)<9):
                 wordsMore=wordsMore+1
 
-
-        percentage=(100*wordsMore)/totalWord
-        percentage=float("{0:2f}".format(percentage))
+        if totalWord==0:
+            percentage=0
+        else:
+            percentage=(100*wordsMore)/totalWord
+            percentage=float("{0:2f}".format(percentage))
 
         return (percentage)
         
@@ -153,9 +201,11 @@ class AnalysisIdentifier:
                 if bigram in bigramSet:
                     countRareBigrams=countRareBigrams+1
     
-        
-        percentage=(100*countRareBigrams)/totalBigrams
-        percentage=float("{0:2f}".format(percentage))
+        if totalBigrams==0:
+            percentage=0
+        else:
+            percentage=(100*countRareBigrams)/totalBigrams
+            percentage=float("{0:2f}".format(percentage))
         return (percentage)
 
 
