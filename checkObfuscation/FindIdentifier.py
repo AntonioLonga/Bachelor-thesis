@@ -53,6 +53,8 @@ class FindIdentifier:
                 if classe:
                     #print ("nome della classe: "+classe.group(1))
                     self.res.append(classe.group(1))
+
+    #analizza solo il path preso dal attributo package nel manifest.xml
     def start(self,path):
         folder=os.listdir(path)
         pathAnalysis=""
@@ -85,7 +87,7 @@ class FindIdentifier:
 
                 
         return (self.res)
-
+    ##analizza tutta i smali nella subdirectory smali
     def start2(self,path):
         self.res=[]
         folder=os.listdir(path)

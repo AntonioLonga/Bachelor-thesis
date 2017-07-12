@@ -45,7 +45,6 @@ if __name__ == '__main__':
             string=AnalysisIdentifier().checkObfuscate(identifier)
             print ("Analizzo solo path")
             print (string)
-
             identifier2=FindIdentifier().start2(path)
             string2=AnalysisIdentifier().checkObfuscate(identifier2)
             print("analizzo tutta la subdirectory smali")
