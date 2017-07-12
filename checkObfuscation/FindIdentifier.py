@@ -6,12 +6,17 @@ import os
 class FindIdentifier:
     res=[]
 
+    def __init__(self):
+        self.res=[]
+
     #cerca ricorsivamente all'interno di tutte le catelle e se trova un file.smali
     #chiama il metodo searchInsideFile
     def searchSmaliCode(self,path):
         
         if (os.path.isdir(path)):
             files=os.listdir(path)
+            #print("searchSmalicode: ")
+            #print (files)
 
             for element in files:
                 if (re.match("\w*.smali",element)):
@@ -50,18 +55,46 @@ class FindIdentifier:
                     self.res.append(classe.group(1))
     def start(self,path):
         folder=os.listdir(path)
+        pathAnalysis=""
+
+        #print (folder)
+
 
         
-        #verifico che all'interno del percorso ci sia una catella smali e
-        #che dentro di lei ci sia la catella com
+        if ("AndroidManifest.xml" in folder):
+            with open (path+"AndroidManifest.xml") as manifest:
+                for line in manifest:
+                    #print (line)
+                    patternPackage="(.*) package=\"([^\s]*)\"(.)*"
+                    package=re.match(patternPackage,line)
+                    if package:
+                        pathAnalysis=(package.group(2))
 
+                        
+            #verifico che all'interno del percorso ci sia una catella smali e
+            #che dentro di lei ci sia la catella com
+            #successivamente cerco il pakage
+
+            if not(pathAnalysis==""):
+
+                stringPath=pathAnalysis.replace(".","/")
+                #print ("entro")
+                print (stringPath)
+                self.searchSmaliCode(path+"/smali/"+stringPath)
+                
+
+                
+        return (self.res)
+
+    def start2(self,path):
+        self.res=[]
+        folder=os.listdir(path)
+               
         for element in folder:
             if (element=="smali"):
                 path=path+"/smali"
                 subfolder=os.listdir(path)
                 for elem in subfolder:
-                    if (elem=="com"):
-                       self.searchSmaliCode(path+"/com")
-
-
+                    self.searchSmaliCode(path+"/"+elem)
+            
         return (self.res)

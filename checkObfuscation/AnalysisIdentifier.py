@@ -40,13 +40,14 @@ class AnalysisIdentifier:
         bigram=(self.average(0.28,5.65,rareBigram))
 
         identifier1=(length+repetute+vocali+percLength+bigram)/5
-        print ("Indicatore di offuscamento con media pesata")
-        print(identifier1)
-
+        #print ("Indicatore di offuscamento con media pesata")
+        #print(identifier1)
+        
         identifier2=(self.average2(length,repetute,vocali,percLength,bigram))
-        print ("Indicatore di offuscamento con metodo 2")
-        print (identifier2)
+        #print ("Indicatore di offuscamento con metodo 2")
+        #print (identifier2)
 
+        return (str(identifier1)+"\t\t"+str(identifier2))
 
         
 

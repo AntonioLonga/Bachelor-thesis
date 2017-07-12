@@ -17,8 +17,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser (description="Analisi di codice Smali")
     parser.add_argument ('-a', '--apk',  metavar='fileApk', type=str, nargs=1, required=False,
                          help='Specificare il file apk, questo verra disassemblato e poi analizato')
-    parser.add_argument ('-d', '--disassembled',  metavar='directory', type=str, nargs=1, required=False,
+    parser.add_argument ('-d', '--disassembled',  metavar='disassembled', type=str, nargs=1, required=False,
                          help='Speficicare il file già disassemblato, questo verrà analizato')
+    parser.add_argument ('-dir', '--directory', metavar='directory', nargs=1, required=False,
+                         help='Specificare folder contenenti app disassemb. e crea un file result')
     args = parser.parse_args()
     # -------------------------------------------------------------------------------- #
 
@@ -32,15 +34,41 @@ if __name__ == '__main__':
             lancio=("./shell.sh "+pathInput+" "+pathOutput)
             os.system(lancio)
 
-            identifier=FindIdentifier().start(pathOutput)
-            AnalysisIdentifier().checkObfuscate(identifier)
+            identifier=FindIdentifier().start(pathOutput+"/")
+            string=AnalysisIdentifier().checkObfuscate(identifier)
+            print (string)
         
         if (args.disassembled):
             print ("hai scelto il file disassemblato: sto analizando il file!")
             path=sys.argv[2]            
             identifier=FindIdentifier().start(path)
-            AnalysisIdentifier().checkObfuscate(identifier)
+            string=AnalysisIdentifier().checkObfuscate(identifier)
+            print ("Analizzo solo path")
+            print (string)
 
+            identifier2=FindIdentifier().start2(path)
+            string2=AnalysisIdentifier().checkObfuscate(identifier2)
+            print("analizzo tutta la subdirectory smali")
+            print (string2)
+            
+            
+        if (args.directory):
+            print ("hai scelto un dir contennte + app disassemblate")
+            path=sys.argv[2]
+            folder= os.listdir(path)
+            print (folder)
+            print ("NOME APP_______________METODO1_______________METODO2")
+
+            for element in folder:
+                
+                
+                if not(element=="apk"):
+                
+                    find=FindIdentifier()
+                    identifier=[]
+                    identifier=find.start(path+"/"+element+"/")
+                    string=AnalysisIdentifier().checkObfuscate(identifier)
+                    print (element+"\t\t"+string)
                                     
             
     except Exception as e:
