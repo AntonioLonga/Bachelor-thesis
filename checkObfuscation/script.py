@@ -2,7 +2,6 @@ from FindIdentifier import FindIdentifier
 from AnalysisIdentifier import AnalysisIdentifier
 import sys
 import argparse
-import re
 import os
 
 
@@ -19,7 +18,7 @@ if __name__ == '__main__':
                          help='Specificare il file apk, questo verra disassemblato e poi analizato')
     parser.add_argument ('-d', '--disassembled',  metavar='disassembled', type=str, nargs=1, required=False,
                          help='Speficicare il file già disassemblato, questo verrà analizato')
-    parser.add_argument ('-dir', '--directory', metavar='directory', nargs=1, required=False,
+    parser.add_argument ('-di', '--directory', metavar='directory', nargs=1, required=False,
                          help='Specificare folder contenenti app disassemb. e crea un file result')
     args = parser.parse_args()
     # -------------------------------------------------------------------------------- #
@@ -60,9 +59,7 @@ if __name__ == '__main__':
             print ("hai scelto un dir contennte + app disassemblate")
             path=sys.argv[2]
             folder= os.listdir(path)
-            print (folder)
-            print ("NOME APP_______________METODO1_______________METODO2")
-
+           
             for element in folder:
                 
                 
@@ -72,18 +69,13 @@ if __name__ == '__main__':
                     identifier=[]
                     identifier1=find.start(path+"/"+element+"/")
                     string=AnalysisIdentifier().checkObfuscate(identifier1)
-                    #print (element+"\t\t"+str(string))
 
                     identifier2=find.start2(path+"/"+element+"/")
                     string2=AnalysisIdentifier().checkObfuscate(identifier2)
-                    #print (element+"\t\t"+str(string2))
                                  
                     identifier3=find.start3(path+"/"+element+"/")
                     string3=AnalysisIdentifier().checkObfuscate(identifier3)
-                    #print (element+"\t\t"+str(string3))
-
                     print (element+"\t\t\t"+(str(string+string2+string3)))
-                    
                                     
             
     except Exception as e:
