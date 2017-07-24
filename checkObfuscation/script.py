@@ -49,6 +49,11 @@ if __name__ == '__main__':
             string2=AnalysisIdentifier().checkObfuscate(identifier2)
             print("analizzo tutta la subdirectory smali")
             print (string2)
+
+            identifier3=FindIdentifier().start3(path)
+            string3=AnalysisIdentifier().checkObfuscate(identifier3)
+            print ("analizzo tutte le activity prese nel manifest")
+            print (string3)
             
             
         if (args.directory):
@@ -65,9 +70,20 @@ if __name__ == '__main__':
                 
                     find=FindIdentifier()
                     identifier=[]
-                    identifier=find.start(path+"/"+element+"/")
-                    string=AnalysisIdentifier().checkObfuscate(identifier)
-                    print (element+"\t\t"+string)
+                    identifier1=find.start(path+"/"+element+"/")
+                    string=AnalysisIdentifier().checkObfuscate(identifier1)
+                    #print (element+"\t\t"+str(string))
+
+                    identifier2=find.start2(path+"/"+element+"/")
+                    string2=AnalysisIdentifier().checkObfuscate(identifier2)
+                    #print (element+"\t\t"+str(string2))
+                                 
+                    identifier3=find.start3(path+"/"+element+"/")
+                    string3=AnalysisIdentifier().checkObfuscate(identifier3)
+                    #print (element+"\t\t"+str(string3))
+
+                    print (element+"\t\t\t"+(str(string+string2+string3)))
+                    
                                     
             
     except Exception as e:

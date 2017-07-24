@@ -59,7 +59,7 @@ class FindIdentifier:
         folder=os.listdir(path)
         pathAnalysis=""
 
-        #print (folder)
+        print (folder)
 
 
         
@@ -100,3 +100,57 @@ class FindIdentifier:
                     self.searchSmaliCode(path+"/"+elem)
             
         return (self.res)
+
+    #analizza tutte le activity trovate nel manifest
+    def start3 (self,path):
+        self.res=[]
+        setOfPath=set()
+        folder=os.listdir(path)
+
+        for element in folder:
+            if (element=="AndroidManifest.xml"):
+                setOfPath=self.findActivityPath(path+"AndroidManifest.xml")
+                       
+
+        for element in setOfPath:
+            e=element.replace(".","/")
+            if os.path.isfile(path+"smali/"+e+".smali"):
+                self.searchInsideFile(path+"smali/"+e+".smali")
+        return (self.res)
+
+
+    def findActivityPath(self,path):
+        setOfPath=set()
+        with open (path) as manifest:
+            for line in manifest:
+                #print (line)
+                patternPackage="(.*) package=\"([^\s]*)\"(.)*"
+                patternActivity="(\s*)<activity (.*)android:name=\"([^\s]*)\"(.*)"
+                patternService="(\s*)<service (.*)android:name=\"([^\s]*)\"(.*)"
+                patternReceiver="(\s*)<receiver (.*)android:name=\"([^\s]*)\"(.*)"
+                activity=re.match(patternActivity, line)
+                package=re.match(patternPackage,line)
+                service=re.match(patternService,line)
+                receiver=re.match(patternReceiver,line)
+                if package:
+                    pathAnalysis=(package.group(2))
+                    setOfPath.add(pathAnalysis)
+                if activity:
+                    pathAnalysis=activity.group(3)
+                    setOfPath.add(pathAnalysis)
+                    #print(activity.group(3))
+                if service:
+                    pathAnalysis=service.group(3)
+                    setOfPath.add(pathAnalysis)
+                    #print (pathAnalysis)
+              
+                if receiver:
+                    pathAnalysis=receiver.group(3)
+                    setOfPath.add(pathAnalysis)
+                    #print (pathAnalysis)
+                    
+                    
+
+        #print ("lunghezza; "+str(len(setOfPath)))
+        #print (setOfPath)
+        return (setOfPath)

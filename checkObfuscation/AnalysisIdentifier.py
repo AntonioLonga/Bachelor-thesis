@@ -14,7 +14,7 @@ class AnalysisIdentifier:
         repetuteWord=self.percentageRepetuteWord(input)
         #contiene la % di parole che hanno meno del 25% di vocali
         countVowel=self.percentageCountVowel(input)
-        #contiene la % di parole meno lunghe di 9 char
+        #contiene la lungheza media delle parole
         percenageLength=self.percenageWordsLength(input)
         #contiene la % di bigrammi rari
         rareBigram=self.percentageRareBigram(input)
@@ -27,18 +27,27 @@ class AnalysisIdentifier:
 
         #range identificatori piu corti di 3 caratteri
         
-        #print (self.average(0.93,25.72,lengthWord))
-        #print (self.average(15.45,50.35,repetuteWord))
-        #print (self.average(20.8,33.75,countVowel))
-        #print (self.average(15.43,50.35,percenageLength))
-        #print (self.average(0.28,5.65,rareBigram))
+       # print (self.average(0.93,25.72,lengthWord))
+       # print (self.average(15.45,50.35,repetuteWord))
+       # print (self.average(20.8,33.75,countVowel))
+       # print (self.average(15.43,50.35,percenageLength))
+       # print (self.average(0.28,5.65,rareBigram))
         
         length=(self.average(0.93,25.72,lengthWord))
         repetute= (self.average(15.45,50.35,repetuteWord))
         vocali= (self.average(20.8,33.75,countVowel))
-        percLength= (self.average(15.43,50.35,percenageLength))
+        #percLength= (self.average(15.43,50.35,percenageLength))
         bigram=(self.average(0.28,5.65,rareBigram))
+        percLength=0
+        if percenageLength<= 9:
+            percLength=1
+        else:
+            percLength=0
 
+        
+
+
+        
         identifier1=(length+repetute+vocali+percLength+bigram)/5
         #print ("Indicatore di offuscamento con media pesata")
         #print(identifier1)
@@ -47,8 +56,8 @@ class AnalysisIdentifier:
         #print ("Indicatore di offuscamento con metodo 2")
         #print (identifier2)
 
-        return (str(identifier1)+"\t\t"+str(identifier2))
-
+        #return (str(identifier1)+"\t\t"+str(identifier2))
+        return (identifier1)
         
 
    
@@ -56,7 +65,12 @@ class AnalysisIdentifier:
     This method take an array of words as input, and return percenage of word that
     have length less or equals than tresholder, the tresholder is set on 3"""     
     def lengthWord(self,input):
-               
+        if (input==[] or input==None):
+            print ("qualcosa non va nel metodo:")
+            print ("AnalysisIdentifier().lenghtWord()")
+            return 0
+        
+            
         percentage=0;
         inputLength=len(input)
         lessTresholder=0
@@ -106,7 +120,10 @@ class AnalysisIdentifier:
         return (value)
             
             
-            
+            ###ÀÀÀÀÀÀÀÀÀÀ#### INIZIO REFACRING
+            # PER INTERROGARE DA SHELL
+            # from AnalysisIdentifier import AnalysisIdentifier as A
+            # A().metodo(parametro)
     
     """Return percentage of repetute words 
     This method take an array of words as input, and return percenage of repetute word  
@@ -114,21 +131,26 @@ class AnalysisIdentifier:
     def percentageRepetuteWord(self,input):
     
         wordSet=set()
+        wordSet2=set()
+
+        wordDict=dict()
 
         for element in input:
-            if not(element in wordSet):
-                wordSet.add(element)
-
-        inputLength=len(input)
-        nonRepetute=len(wordSet)
-        repetuteWord=inputLength-nonRepetute
-        if inputLength==0:
+            if (element in wordDict):
+                wordDict[element]=wordDict[element]+1
+            else:
+                wordDict[element]=1
+      
+        ripetute=0
+        for x in wordDict:
+            if wordDict[x] >1:
+                ripetute=ripetute+wordDict[x]
+                
+        if len(input)==0:
             percentage=0
-        else:
-            percentage=(100*repetuteWord)/inputLength
-            percentage = float("{0:.2f}".format(percentage))
-
-
+        else: 
+            percentage=(100*ripetute)/len(input)
+        
         return percentage
 
     
@@ -162,8 +184,16 @@ class AnalysisIdentifier:
 
         return (percentage)
 
+   
 
     def percenageWordsLength(self,input):
+
+
+        #qui calcola la probabilita di pescare una parola con la
+        #lunghezza minore di 9
+        #es ["a","b","c","AntonioLonga"] ris = 75%
+        
+        """
         totalWord=0
         wordsMore=0
         for word in input:
@@ -178,15 +208,22 @@ class AnalysisIdentifier:
             percentage=float("{0:2f}".format(percentage))
 
         return (percentage)
+        """
+
         
-        """   
+        # qui calcolo la lunghezza media delle parole!
+       
+        totalLength=0
         for word in input:
             totalLength=totalLength+len(word)
 
-        average=totalLength/len(input)
-       
-        return (percentage)
-        """
+        if totalLength==0:
+            print ("c'è qualcosa che non va nel metodo percenageWordsLength")
+            average=0
+        else:
+            average=totalLength/len(input)
+        return (average)
+        
 
 
 
@@ -195,10 +232,15 @@ class AnalysisIdentifier:
         totalBigrams=0
         bigramSet=getRareBigramFromFile()
 
+        
+
         for word in input:
             for i in range(0,len(word)-1):
                 totalBigrams=totalBigrams+1
                 bigram=(word[i]+word[i+1])
+                bigram=bigram.upper()
+                
+                
                 if bigram in bigramSet:
                     countRareBigrams=countRareBigrams+1
     
@@ -211,6 +253,9 @@ class AnalysisIdentifier:
 
 
 def getRareBigramFromFile():
+
+
+   
     
     with open("rareBigram/rareBigram.txt") as f:
         for bigram in f:
