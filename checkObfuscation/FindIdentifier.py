@@ -1,4 +1,3 @@
-import sys
 import re
 import os
 
@@ -17,14 +16,19 @@ class FindIdentifier:
             files=os.listdir(path)
             #print("searchSmalicode: ")
             #print (files)
-
+            
             for element in files:
-                if (re.match("\w*.smali",element)):
+                #se non li vuoi controllare metti
+                # ("\w*.smali")
+                
+                #cosi controlli anche i file del tipo Qualcosa$qualcosa.smali
+                if (re.match("\w*\$?\w*.smali",element)):
                     #print ("smali: "+element)
+                    
                     self.searchInsideFile(path+"/"+element)
                 else:
                     self.searchSmaliCode(path+"/"+element)
-
+            
 
 
     
@@ -59,7 +63,6 @@ class FindIdentifier:
         folder=os.listdir(path)
         pathAnalysis=""
 
-        print (folder)
 
 
         
@@ -81,7 +84,6 @@ class FindIdentifier:
 
                 stringPath=pathAnalysis.replace(".","/")
                 #print ("entro")
-                print (stringPath)
                 self.searchSmaliCode(path+"/smali/"+stringPath)
                 
 
@@ -142,7 +144,7 @@ class FindIdentifier:
                 if service:
                     pathAnalysis=service.group(3)
                     setOfPath.add(pathAnalysis)
-                    #print (pathAnalysis)
+                    #psearchSmaliCoderint (pathAnalysis)
               
                 if receiver:
                     pathAnalysis=receiver.group(3)
