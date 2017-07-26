@@ -7,14 +7,33 @@ class AnalysisIdentifier:
 
     
     def checkObfuscate(self,input):
+        #contiene la lunghezza totatle delle parole
+        totalLengthWordsOnArray=0
+        wordDict=dict()
+        for element in input:
+            totalLengthWordsOnArray=totalLengthWordsOnArray+len(element)
+            if (element in wordDict):
+                wordDict[element]=wordDict[element]+1
+            else:
+                wordDict[element]=1
+      
+            
+            
+
+        
+
+        #se l'nput che passo è vuoto, sighifica che il path nel manifest  non porta a nessuna cartella, quindi sicuramente offuscato
+        if input==[]:
+            return 1
+        
         #contiene la % di parole con lung minore uguale a 3
         lengthWord=self.lengthWord(input)
         #contiene la % di parole ripetute
-        repetuteWord=self.percentageRepetuteWord(input)
+        repetuteWord=self.percentageRepetuteWord(input,wordDict)
         #contiene la % di parole che hanno meno del 25% di vocali
         countVowel=self.percentageCountVowel(input)
         #contiene la lungheza media delle parole
-        percenageLength=self.percenageWordsLength(input)
+        percenageLength=self.percenageWordsLength(input,totalLengthWordsOnArray)
         #contiene la % di bigrammi rari
         rareBigram=self.percentageRareBigram(input)
         #print ("% di parole con lung. <= a 3: "+str(lengthWord))
@@ -51,7 +70,7 @@ class AnalysisIdentifier:
         #print ("Indicatore di offuscamento con media pesata")
         #print(identifier1)
         
-        identifier2=(self.average2(length,repetute,vocali,percLength,bigram))
+        #identifier2=(self.average2(length,repetute,vocali,percLength,bigram))
         #print ("Indicatore di offuscamento con metodo 2")
         #print (identifier2)
 
@@ -127,19 +146,14 @@ class AnalysisIdentifier:
     """Return percentage of repetute words 
     This method take an array of words as input, and return percenage of repetute word  
     """   
-    def percentageRepetuteWord(self,input):
+    def percentageRepetuteWord(self,input,wordDict):
     
-        wordSet=set()
-        wordSet2=set()
+        #wordSet=set()
+        #wordSet2=set()
 
-        wordDict=dict()
+        
 
-        for element in input:
-            if (element in wordDict):
-                wordDict[element]=wordDict[element]+1
-            else:
-                wordDict[element]=1
-      
+        
         ripetute=0
         for x in wordDict:
             if wordDict[x] >1:
@@ -159,7 +173,7 @@ class AnalysisIdentifier:
     def percentageCountVowel(self,input):
         vowels= {"a","e","i","o","u"}
         vowelsCount=0
-        totalCharacter=0
+        #totalCharacter=0
         totalWord=0
         for word in input:
             wordChar=0
@@ -185,7 +199,7 @@ class AnalysisIdentifier:
 
    
 
-    def percenageWordsLength(self,input):
+    def percenageWordsLength(self,input,totalLength):
 
 
         #qui calcola la probabilita di pescare una parola con la
@@ -212,9 +226,9 @@ class AnalysisIdentifier:
         
         # qui calcolo la lunghezza media delle parole!
        
-        totalLength=0
-        for word in input:
-            totalLength=totalLength+len(word)
+        #totalLength=0
+        #for word in input:
+         #   totalLength=totalLength+len(word)
 
         if totalLength==0:
             print ("c'è qualcosa che non va nel metodo percenageWordsLength")
@@ -252,10 +266,6 @@ class AnalysisIdentifier:
 
 
 def getRareBigramFromFile():
-
-
-   
-    
     with open("rareBigram/rareBigram.txt") as f:
         for bigram in f:
             big=re.match("(\w\w)(\w*)",bigram)

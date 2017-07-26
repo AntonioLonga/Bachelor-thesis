@@ -5,11 +5,6 @@ import argparse
 import os
 
 
-#prendo l'input temporaneamente
-#la cartella che contiene la cartella smali....tipo
-#../test1/test1.2/
-
-
 if __name__ == '__main__':
     
     # -------------------------CLI-ARGUMENT-MANAGEMENT-------------------------------- #
@@ -32,10 +27,30 @@ if __name__ == '__main__':
 
             lancio=("./shell.sh "+pathInput+" "+pathOutput)
             os.system(lancio)
-
             identifier=FindIdentifier().start(pathOutput+"/")
             string=AnalysisIdentifier().checkObfuscate(identifier)
+            print ("Analizzo solo path")
             print (string)
+            identifier2=FindIdentifier().start2(pathOutput+"/")
+            string2=AnalysisIdentifier().checkObfuscate(identifier2)
+            print("analizzo tutta la subdirectory smali")
+            print (string2)
+
+            identifier3=FindIdentifier().start3(pathOutput+"/")
+            string3=AnalysisIdentifier().checkObfuscate(identifier3)
+            print ("analizzo tutte le activity prese nel manifest")
+            print (string3)
+            tot =string+string2+string3
+            print ("totale:\t\t\t"+(str(tot)))
+            
+            if (tot<=2):
+                print(False)
+            elif(tot>=3):
+                print(True) 
+            else:
+                print(None)
+            
+            
         
         if (args.disassembled):
             print ("hai scelto il file disassemblato: sto analizando il file!")
@@ -53,13 +68,25 @@ if __name__ == '__main__':
             string3=AnalysisIdentifier().checkObfuscate(identifier3)
             print ("analizzo tutte le activity prese nel manifest")
             print (string3)
+            tot =string+string2+string3
+            print ("totale:\t\t\t"+(str(tot)))
+            if (tot<=2):
+                print(False)
+            elif(tot>=3):
+                print(True) 
+            else:
+                print(None)
             
             
         if (args.directory):
             print ("hai scelto un dir contennte + app disassemblate")
             path=sys.argv[2]
             folder= os.listdir(path)
-           
+            #elimino il contenuto del file
+            with open('result.csv', 'w') as file:
+                pass
+            file.close()
+            
             for element in folder:
                 
                 
@@ -72,45 +99,15 @@ if __name__ == '__main__':
 
                     identifier2=find.start2(path+"/"+element+"/")
                     string2=AnalysisIdentifier().checkObfuscate(identifier2)
-                                 
                     identifier3=find.start3(path+"/"+element+"/")
                     string3=AnalysisIdentifier().checkObfuscate(identifier3)
                     print (element+"\t\t\t"+(str(string+string2+string3)))
+                    #scrivo nel file i risultatit
+                    with open('result.csv', 'a') as file:
+                        file.write(element+","+(str(string+string2+string3))+"\n")
                                     
-            
+            file.close()
     except Exception as e:
         raise (e)
+            
 
-
-
-
-
-
-
-"""
-path=sys.argv[1]
-
-identifier=FindIdentifier().start(path)
-
-#print (identifier)
-
-#lengthWord=AnalysisIdentifier.lengthWord(identifier)
-#print ("percentuale della parole con lunghezza <=3: "+str(lengthWord))
-
-#repetuteWord=AnalysisIdentifier.percentageRepertuteWord(identifier)
-#print ("percentale di parole ripetute: "+str(repetuteWord))
-
-
-#vowelCount=AnalysisIdentifier.percentageCountVowel(identifier)
-#print ("percentale di vocale su tutti i caratteri: "+str(vowelCount))
-
-#average=AnalysisIdentifier.averageWordsLength(identifier)
-#print ("lunghezza media delle parole: "+str(average))
-
-
-#rareBigram=AnalysisIdentifier.countRareBigram(identifier)
-#print ("percentuale di bigrammi rari: "+str(rareBigram))
-
-
-AnalysisIdentifier().checkObfuscate(identifier)
-"""
