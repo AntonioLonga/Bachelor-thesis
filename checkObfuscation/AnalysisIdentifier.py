@@ -22,7 +22,8 @@ class AnalysisIdentifier:
 
         
 
-        #se l'nput che passo è vuoto, sighifica che il path nel manifest  non porta a nessuna cartella, quindi sicuramente offuscato
+        #se l'nput che passo è vuoto, sighifica che il path nel manifest
+        #non porta a nessuna cartella, quindi sicuramente offuscato
         if input==[]:
             return 1
         
@@ -148,12 +149,7 @@ class AnalysisIdentifier:
     """   
     def percentageRepetuteWord(self,input,wordDict):
     
-        #wordSet=set()
-        #wordSet2=set()
-
-        
-
-        
+                
         ripetute=0
         for x in wordDict:
             if wordDict[x] >1:

@@ -1,7 +1,7 @@
 import re
 import os
 
-##commento test per git
+
 
 
 
@@ -23,9 +23,11 @@ class FindIdentifier:
             for element in files:
                 #se non li vuoi controllare metti
                 # ("\w*.smali")
+                #se li vuoi controllare metti
+                # "\w*\$?\w*.smali"
                 
                 #cosi controlli anche i file del tipo Qualcosa$qualcosa.smali
-                if (re.match("\w*\$?\w*.smali",element)):
+                if (re.match("\w*.smali",element)):
                     #print ("smali: "+element)
                     
                     self.searchInsideFile(path+"/"+element)
@@ -65,10 +67,7 @@ class FindIdentifier:
     def start(self,path):
         folder=os.listdir(path)
         pathAnalysis=""
-
-
-
-        
+        #cerco all'interno del file AndroidManifest il path
         if ("AndroidManifest.xml" in folder):
             with open (path+"AndroidManifest.xml") as manifest:
                 for line in manifest:
@@ -88,10 +87,12 @@ class FindIdentifier:
                 stringPath=pathAnalysis.replace(".","/")
                 #print ("entro")
                 self.searchSmaliCode(path+"/smali/"+stringPath)
-                
+            else:
+                print ("c'è qualcosa che non va nel path del manifest")
 
                 
         return (self.res)
+    
     ##analizza tutta i smali nella subdirectory smali
     def start2(self,path):
         self.res=[]
@@ -106,6 +107,7 @@ class FindIdentifier:
             
         return (self.res)
 
+    
     #analizza tutte le activity trovate nel manifest
     def start3 (self,path):
         self.res=[]
@@ -123,7 +125,7 @@ class FindIdentifier:
                 self.searchInsideFile(path+"smali/"+e+".smali")
         return (self.res)
 
-
+    #cerca tutte le activity che trova nel manifest e le inserisce in un insieme (no duplicati)
     def findActivityPath(self,path):
         setOfPath=set()
         with open (path) as manifest:
@@ -159,3 +161,6 @@ class FindIdentifier:
         #print ("lunghezza; "+str(len(setOfPath)))
         #print (setOfPath)
         return (setOfPath)
+
+
+   

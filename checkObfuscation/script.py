@@ -29,59 +29,61 @@ if __name__ == '__main__':
             os.system(lancio)
             identifier=FindIdentifier().start(pathOutput+"/")
             string=AnalysisIdentifier().checkObfuscate(identifier)
-            print ("Analizzo solo path")
-            print (string)
             identifier2=FindIdentifier().start2(pathOutput+"/")
             string2=AnalysisIdentifier().checkObfuscate(identifier2)
-            print("analizzo tutta la subdirectory smali")
-            print (string2)
-
+            
             identifier3=FindIdentifier().start3(pathOutput+"/")
             string3=AnalysisIdentifier().checkObfuscate(identifier3)
-            print ("analizzo tutte le activity prese nel manifest")
-            print (string3)
             tot =string+string2+string3
-            print ("totale:\t\t\t"+(str(tot)))
-            
-            if (tot<=2):
-                print(False)
-            elif(tot>=3):
-                print(True) 
+            bol="error"
+            if (tot<2.09474):
+                bol=False
+            elif (tot>2.68118):
+                bol=True
             else:
-                print(None)
-            
+                bol=None
+            print (str(tot)+"\t\t\t"+str(bol))
             
         
         if (args.disassembled):
-            print ("hai scelto il file disassemblato: sto analizando il file!")
-            path=sys.argv[2]            
+            print ("hai scelto il file disassemblato: sto analizando il file!")          
+            path=sys.argv[2]
+            
+            #aggiungo / se non è stato inserito
+            if not(path[-1]=="/"):
+                path=path+"/"
+
+                
             identifier=FindIdentifier().start(path)
             string=AnalysisIdentifier().checkObfuscate(identifier)
-            print ("Analizzo solo path")
-            print (string)
             identifier2=FindIdentifier().start2(path)
             string2=AnalysisIdentifier().checkObfuscate(identifier2)
-            print("analizzo tutta la subdirectory smali")
-            print (string2)
 
             identifier3=FindIdentifier().start3(path)
             string3=AnalysisIdentifier().checkObfuscate(identifier3)
-            print ("analizzo tutte le activity prese nel manifest")
-            print (string3)
+
+                     
             tot =string+string2+string3
-            print ("totale:\t\t\t"+(str(tot)))
-            if (tot<=2):
-                print(False)
-            elif(tot>=3):
-                print(True) 
+            bol="error"
+            if (tot<2.09474):
+                bol=False
+            elif (tot>2.68118):
+                bol=True
             else:
-                print(None)
+                bol=None
+            print (str(tot)+"\t\t\t"+str(bol))
             
             
         if (args.directory):
             print ("hai scelto un dir contennte + app disassemblate")
             path=sys.argv[2]
+
+            #aggiungo / se non è stato inserito
+            if not(path[-1]=="/"):
+                path=path+"/"
+                
             folder= os.listdir(path)
+            
             #elimino il contenuto del file
             with open('result.csv', 'w') as file:
                 pass
@@ -101,10 +103,23 @@ if __name__ == '__main__':
                     string2=AnalysisIdentifier().checkObfuscate(identifier2)
                     identifier3=find.start3(path+"/"+element+"/")
                     string3=AnalysisIdentifier().checkObfuscate(identifier3)
-                    print (element+"\t\t\t"+(str(string+string2+string3)))
+                    tot=(string+string2+string3)
+                    bol="error"
+                    if (tot<2.09474):
+                        bol=False
+                    elif (tot>2.68118):
+                        bol=True
+                    else:
+                        bol=None
+                    print (element+"\t\t\t"+str(tot)+"\t\t\t"+str(bol))
                     #scrivo nel file i risultatit
                     with open('result.csv', 'a') as file:
-                        file.write(element+","+(str(string+string2+string3))+"\n")
+                        #qui stampo solo il totale
+                        #file.write(element+","+(str(string+string2+string3))+"\n")
+
+                        #qui li stampo singolarmente per analizarli
+                        
+                        file.write(element+","+(str(string))+","+(str(string2))+","+(str(string3))+","+str(tot)+","+str(bol)+"\n")
                                     
             file.close()
     except Exception as e:
