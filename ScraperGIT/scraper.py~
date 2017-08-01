@@ -1,0 +1,7 @@
+import urllib as url
+from bs4 import BeautifulSoup
+
+
+f_droid="https://f-droid.org/"
+f_droid_browse="https://f-droid.org/packages/"
+
