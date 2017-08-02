@@ -1,0 +1,16 @@
+https://github.com/okey666/NiceCompass,dskljfklasdjfkls
+https://github.com/saschpe/BirthdayCalendar,https://f-droid.org//packages/saschpe.contactevents
+https://github.com/tuxmobil/CampFahrplan,https://f-droid.org//packages/nerd.tuxmobil.fahrplan.camp
+https://github.com/openfoodfacts/openfoodfacts-androidapp,https://f-droid.org//packages/org.openpetfoodfacts.scanner
+https://github.com/vitas/beaconloc,https://f-droid.org//packages/com.samebits.beacon.locator
+https://github.com/douzifly/clear-todolist,https://f-droid.org//packages/douzifly.list
+https://github.com/duckduckgo/android-search-and-stories,https://f-droid.org//packages/com.duckduckgo.mobile.android
+https://github.com/TodorBalabanov/ColorsOverflow,https://f-droid.org//packages/eu.veldsoft.colors.overflow
+https://github.com/poseidn/KungFoo,https://f-droid.org//packages/com.onetwofivegames.kungfoobarracuda
+https://github.com/microg/NominatimGeocoderBackend,https://f-droid.org//packages/org.microg.nlp.backend.nominatim
+https://github.com/bitplane/Microphone,https://f-droid.org//packages/net.bitplane.android.microphone
+https://github.com/linuxtage/glt-companion,https://f-droid.org//packages/at.linuxtage.companion
+https://github.com/openintents/flashlight,https://f-droid.org//packages/org.openintents.flashlight
+https://github.com/Dejvino/amdroid,https://f-droid.org//packages/com.sound.ampache
+https://github.com/fr3ts0n/StageFever,https://f-droid.org//packages/com.fr3ts0n.stagefever
+https://github.com/jonan/ForkHub,https://f-droid.org//packages/jp.forkhub

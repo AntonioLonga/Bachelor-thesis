@@ -1,0 +1,71 @@
+import urllib as url
+from bs4 import BeautifulSoup
+
+
+
+
+def getGradleFile(link):
+
+    
+    pageGioco=url.request.urlopen(link)
+    
+    soupGioco=BeautifulSoup(pageGioco,"lxml")
+    
+    elements=soupGioco.find_all("a",class_="js-navigation-open")
+
+    for element in elements:
+        title=app.get("title")
+        if(title=="app"):
+            linkapp=app.get("href")
+            print (linkapp)
+
+            pageApp=url.request.urlopen(linkapp)
+            soupApp=BeautifulSoup(pageApp,"lxml")
+            files=soupApp.find_all("a",class_="js-navigation-open")
+
+            for file in files:
+                titolo=app.get("title")
+                if (titolo=="
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+tmp="https://github.com/Kamshak/BrainPhaser"
+tmp2="https://github.com/no-go/AnotherRSS"
+tmp3="https://github.com/fr3ts0n/AndrOBD"
+getGradleFile(tmp)
+getGradleFile(tmp2)
+getGradleFile(tmp3)
+
+

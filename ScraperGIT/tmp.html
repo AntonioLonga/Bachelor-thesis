@@ -1,0 +1,588 @@
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="LC1" class="blob-code blob-code-inner js-file-line">apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds">'</span>com.android.application<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="LC2" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-k">Properties</span> props <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">Properties</span>()</td>
+      </tr>
+      <tr>
+        <td id="L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-k">File</span> gradlePropertiesFile <span class="pl-k">=</span> file(<span class="pl-s"><span class="pl-pds">"</span>gradle.properties<span class="pl-pds">"</span></span>)</td>
+      </tr>
+      <tr>
+        <td id="L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="LC5" class="blob-code blob-code-inner js-file-line"><span class="pl-k">if</span> (<span class="pl-k">!</span>gradlePropertiesFile<span class="pl-k">.</span>exists()) {</td>
+      </tr>
+      <tr>
+        <td id="L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="LC6" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-k">IllegalStateException</span>(</td>
+      </tr>
+      <tr>
+        <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="LC7" class="blob-code blob-code-inner js-file-line">            <span class="pl-s"><span class="pl-pds">"</span>Please create the file 'gradle.properties' before <span class="pl-pds">"</span></span> <span class="pl-k">+</span></td>
+      </tr>
+      <tr>
+        <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="LC8" class="blob-code blob-code-inner js-file-line">                    <span class="pl-s"><span class="pl-pds">"</span>importing the project. Do not forget to add custom values!<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="LC9" class="blob-code blob-code-inner js-file-line">    )</td>
+      </tr>
+      <tr>
+        <td id="L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="LC10" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="LC11" class="blob-code blob-code-inner js-file-line">props<span class="pl-k">.</span>load(<span class="pl-k">new</span> <span class="pl-k">FileInputStream</span>(gradlePropertiesFile))</td>
+      </tr>
+      <tr>
+        <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="LC12" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="LC13" class="blob-code blob-code-inner js-file-line"><span class="pl-en">android</span> {</td>
+      </tr>
+      <tr>
+        <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="LC14" class="blob-code blob-code-inner js-file-line">    compileSdkVersion 23</td>
+      </tr>
+      <tr>
+        <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="LC15" class="blob-code blob-code-inner js-file-line">    buildToolsVersion <span class="pl-s"><span class="pl-pds">"</span>23.0.2<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="LC16" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="LC17" class="blob-code blob-code-inner js-file-line">    defaultConfig {</td>
+      </tr>
+      <tr>
+        <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="LC18" class="blob-code blob-code-inner js-file-line">        versionCode <span class="pl-c1">39</span></td>
+      </tr>
+      <tr>
+        <td id="L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="LC19" class="blob-code blob-code-inner js-file-line">        versionName <span class="pl-s"><span class="pl-pds">"</span>1.32.2<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="LC20" class="blob-code blob-code-inner js-file-line">        minSdkVersion <span class="pl-c1">14</span></td>
+      </tr>
+      <tr>
+        <td id="L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="LC21" class="blob-code blob-code-inner js-file-line">        targetSdkVersion <span class="pl-c1">22</span></td>
+      </tr>
+      <tr>
+        <td id="L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="LC22" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="LC23" class="blob-code blob-code-inner js-file-line">        archivesBaseName <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Fahrplan-<span class="pl-smi">$v<span class="pl-smi">ersionName</span></span><span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="LC24" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="LC25" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">//</span> Build information</span></td>
+      </tr>
+      <tr>
+        <td id="L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="LC26" class="blob-code blob-code-inner js-file-line">        buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>BUILD_TIME<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span><span class="pl-s1"><span class="pl-pse">${</span>buildTime()<span class="pl-pse">}</span></span><span class="pl-cce">\"</span><span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="LC27" class="blob-code blob-code-inner js-file-line">        buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>GIT_SHA<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span><span class="pl-s1"><span class="pl-pse">${</span>gitSha()<span class="pl-pse">}</span></span><span class="pl-cce">\"</span><span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="LC28" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="LC29" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="LC30" class="blob-code blob-code-inner js-file-line">    buildTypes {</td>
+      </tr>
+      <tr>
+        <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="LC31" class="blob-code blob-code-inner js-file-line">        debug {</td>
+      </tr>
+      <tr>
+        <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="LC32" class="blob-code blob-code-inner js-file-line">            versionNameSuffix <span class="pl-s"><span class="pl-pds">"</span>-DEBUG<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
+        <td id="LC33" class="blob-code blob-code-inner js-file-line">            applicationIdSuffix <span class="pl-s"><span class="pl-pds">"</span>.debug<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
+        <td id="LC34" class="blob-code blob-code-inner js-file-line">            zipAlignEnabled <span class="pl-c1">true</span></td>
+      </tr>
+      <tr>
+        <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
+        <td id="LC35" class="blob-code blob-code-inner js-file-line">            debuggable <span class="pl-c1">true</span></td>
+      </tr>
+      <tr>
+        <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
+        <td id="LC36" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
+        <td id="LC37" class="blob-code blob-code-inner js-file-line">        release {</td>
+      </tr>
+      <tr>
+        <td id="L38" class="blob-num js-line-number" data-line-number="38"></td>
+        <td id="LC38" class="blob-code blob-code-inner js-file-line">            zipAlignEnabled <span class="pl-c1">true</span></td>
+      </tr>
+      <tr>
+        <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
+        <td id="LC39" class="blob-code blob-code-inner js-file-line">            minifyEnabled <span class="pl-c1">false</span></td>
+      </tr>
+      <tr>
+        <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
+        <td id="LC40" class="blob-code blob-code-inner js-file-line">            proguardFiles getDefaultProguardFile(<span class="pl-s"><span class="pl-pds">'</span>proguard-android.txt<span class="pl-pds">'</span></span>), <span class="pl-s"><span class="pl-pds">'</span>proguard-project.txt<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
+        <td id="LC41" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
+        <td id="LC42" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
+        <td id="LC43" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
+        <td id="LC44" class="blob-code blob-code-inner js-file-line">    signingConfigs {</td>
+      </tr>
+      <tr>
+        <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
+        <td id="LC45" class="blob-code blob-code-inner js-file-line">        ccc31c3 {</td>
+      </tr>
+      <tr>
+        <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
+        <td id="LC46" class="blob-code blob-code-inner js-file-line">            storeFile file(props[<span class="pl-s"><span class="pl-pds">'</span>signing.ccc31c3-release.keystoreFilePath<span class="pl-pds">'</span></span>])</td>
+      </tr>
+      <tr>
+        <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
+        <td id="LC47" class="blob-code blob-code-inner js-file-line">            storePassword props[<span class="pl-s"><span class="pl-pds">'</span>signing.ccc31c3-release.keystorePassword<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
+        <td id="LC48" class="blob-code blob-code-inner js-file-line">            keyAlias props[<span class="pl-s"><span class="pl-pds">'</span>signing.ccc31c3-release.keyAlias<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
+        <td id="LC49" class="blob-code blob-code-inner js-file-line">            keyPassword props[<span class="pl-s"><span class="pl-pds">'</span>signing.ccc31c3-release.keyPassword<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
+        <td id="LC50" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
+        <td id="LC51" class="blob-code blob-code-inner js-file-line">        camp2015 {</td>
+      </tr>
+      <tr>
+        <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
+        <td id="LC52" class="blob-code blob-code-inner js-file-line">            storeFile file(props[<span class="pl-s"><span class="pl-pds">'</span>signing.camp2015-release.keystoreFilePath<span class="pl-pds">'</span></span>])</td>
+      </tr>
+      <tr>
+        <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
+        <td id="LC53" class="blob-code blob-code-inner js-file-line">            storePassword props[<span class="pl-s"><span class="pl-pds">'</span>signing.camp2015-release.keystorePassword<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
+        <td id="LC54" class="blob-code blob-code-inner js-file-line">            keyAlias props[<span class="pl-s"><span class="pl-pds">'</span>signing.camp2015-release.keyAlias<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
+        <td id="LC55" class="blob-code blob-code-inner js-file-line">            keyPassword props[<span class="pl-s"><span class="pl-pds">'</span>signing.camp2015-release.keyPassword<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
+        <td id="LC56" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
+        <td id="LC57" class="blob-code blob-code-inner js-file-line">        ccc32c3 {</td>
+      </tr>
+      <tr>
+        <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
+        <td id="LC58" class="blob-code blob-code-inner js-file-line">            storeFile file(props[<span class="pl-s"><span class="pl-pds">'</span>signing.ccc32c3-release.keystoreFilePath<span class="pl-pds">'</span></span>])</td>
+      </tr>
+      <tr>
+        <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
+        <td id="LC59" class="blob-code blob-code-inner js-file-line">            storePassword props[<span class="pl-s"><span class="pl-pds">'</span>signing.ccc32c3-release.keystorePassword<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
+        <td id="LC60" class="blob-code blob-code-inner js-file-line">            keyAlias props[<span class="pl-s"><span class="pl-pds">'</span>signing.ccc32c3-release.keyAlias<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
+        <td id="LC61" class="blob-code blob-code-inner js-file-line">            keyPassword props[<span class="pl-s"><span class="pl-pds">'</span>signing.ccc32c3-release.keyPassword<span class="pl-pds">'</span></span>]</td>
+      </tr>
+      <tr>
+        <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
+        <td id="LC62" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
+        <td id="LC63" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
+        <td id="LC64" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
+        <td id="LC65" class="blob-code blob-code-inner js-file-line">    productFlavors {</td>
+      </tr>
+      <tr>
+        <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
+        <td id="LC66" class="blob-code blob-code-inner js-file-line">        ccc31c3 {</td>
+      </tr>
+      <tr>
+        <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
+        <td id="LC67" class="blob-code blob-code-inner js-file-line">            applicationId <span class="pl-s"><span class="pl-pds">"</span>nerd.tuxmobil.fahrplan.congress<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
+        <td id="LC68" class="blob-code blob-code-inner js-file-line">            signingConfig signingConfigs<span class="pl-k">.</span>ccc31c3</td>
+      </tr>
+      <tr>
+        <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
+        <td id="LC69" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_URL<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"https://events.ccc.de/congress/2014/Fahrplan/schedule.xml"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
+        <td id="LC70" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_DOMAIN_PART<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"http://events.ccc.de"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
+        <td id="LC71" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_EVENT_PART<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"/events/%1$s.html"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
+        <td id="LC72" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_PART<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"/congress/2014/Fahrplan"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
+        <td id="LC73" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>VENUE<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"cch"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
+        <td id="LC74" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FIRST_DAY_START_YEAR<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>2014<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
+        <td id="LC75" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FIRST_DAY_START_MONTH<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>12<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
+        <td id="LC76" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FIRST_DAY_START_DAY<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>27<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
+        <td id="LC77" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_LAST_DAY_END_YEAR<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>2014<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
+        <td id="LC78" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_LAST_DAY_END_MONTH<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>12<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
+        <td id="LC79" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_LAST_DAY_END_DAY<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>31<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
+        <td id="LC80" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FEEDBACK_URL<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"https://frab.cccv.de/en/31C3/public/events/%s/feedback/new"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
+        <td id="LC81" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
+        <td id="LC82" class="blob-code blob-code-inner js-file-line">        camp2015 {</td>
+      </tr>
+      <tr>
+        <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
+        <td id="LC83" class="blob-code blob-code-inner js-file-line">            applicationId <span class="pl-s"><span class="pl-pds">"</span>nerd.tuxmobil.fahrplan.camp<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
+        <td id="LC84" class="blob-code blob-code-inner js-file-line">            signingConfig signingConfigs<span class="pl-k">.</span>camp2015</td>
+      </tr>
+      <tr>
+        <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
+        <td id="LC85" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_URL<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"https://events.ccc.de/camp/2015/Fahrplan/schedule.xml"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
+        <td id="LC86" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_DOMAIN_PART<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"http://events.ccc.de"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
+        <td id="LC87" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_EVENT_PART<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"/events/%1$s.html"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
+        <td id="LC88" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_PART<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"/camp/2015/Fahrplan"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
+        <td id="LC89" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>VENUE<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"mildenberg"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
+        <td id="LC90" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FIRST_DAY_START_YEAR<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>2015<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L91" class="blob-num js-line-number" data-line-number="91"></td>
+        <td id="LC91" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FIRST_DAY_START_MONTH<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>8<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L92" class="blob-num js-line-number" data-line-number="92"></td>
+        <td id="LC92" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FIRST_DAY_START_DAY<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>13<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L93" class="blob-num js-line-number" data-line-number="93"></td>
+        <td id="LC93" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_LAST_DAY_END_YEAR<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>2015<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L94" class="blob-num js-line-number" data-line-number="94"></td>
+        <td id="LC94" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_LAST_DAY_END_MONTH<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>8<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L95" class="blob-num js-line-number" data-line-number="95"></td>
+        <td id="LC95" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_LAST_DAY_END_DAY<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>17<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L96" class="blob-num js-line-number" data-line-number="96"></td>
+        <td id="LC96" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FEEDBACK_URL<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"https://frab.cccv.de/en/camp2015/public/events/%s/feedback/new"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L97" class="blob-num js-line-number" data-line-number="97"></td>
+        <td id="LC97" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="L98" class="blob-num js-line-number" data-line-number="98"></td>
+        <td id="LC98" class="blob-code blob-code-inner js-file-line">        ccc32c3 {</td>
+      </tr>
+      <tr>
+        <td id="L99" class="blob-num js-line-number" data-line-number="99"></td>
+        <td id="LC99" class="blob-code blob-code-inner js-file-line">            applicationId <span class="pl-s"><span class="pl-pds">"</span>nerd.tuxmobil.fahrplan.congress<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L100" class="blob-num js-line-number" data-line-number="100"></td>
+        <td id="LC100" class="blob-code blob-code-inner js-file-line">            signingConfig signingConfigs<span class="pl-k">.</span>ccc32c3</td>
+      </tr>
+      <tr>
+        <td id="L101" class="blob-num js-line-number" data-line-number="101"></td>
+        <td id="LC101" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_URL<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"https://streaming.media.ccc.de/configs/conferences/32c3/tuxmobil.xml"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L102" class="blob-num js-line-number" data-line-number="102"></td>
+        <td id="LC102" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_DOMAIN_PART<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"https://events.ccc.de"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L103" class="blob-num js-line-number" data-line-number="103"></td>
+        <td id="LC103" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_EVENT_PART<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"/events/%1$s.html"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L104" class="blob-num js-line-number" data-line-number="104"></td>
+        <td id="LC104" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_PART<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"/congress/2015/Fahrplan"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L105" class="blob-num js-line-number" data-line-number="105"></td>
+        <td id="LC105" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>VENUE<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"cch"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
+        <td id="LC106" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FIRST_DAY_START_YEAR<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>2015<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
+        <td id="LC107" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FIRST_DAY_START_MONTH<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>12<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
+        <td id="LC108" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FIRST_DAY_START_DAY<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>27<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
+        <td id="LC109" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_LAST_DAY_END_YEAR<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>2015<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
+        <td id="LC110" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_LAST_DAY_END_MONTH<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>12<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
+        <td id="LC111" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>int<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_LAST_DAY_END_DAY<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>31<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
+        <td id="LC112" class="blob-code blob-code-inner js-file-line">            buildConfigField <span class="pl-s"><span class="pl-pds">"</span>String<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>SCHEDULE_FEEDBACK_URL<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">'</span>"https://frab.cccv.de/en/32C3/public/events/%s/feedback/new"<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
+        <td id="LC113" class="blob-code blob-code-inner js-file-line">        }</td>
+      </tr>
+      <tr>
+        <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
+        <td id="LC114" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
+        <td id="LC115" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
+        <td id="LC116" class="blob-code blob-code-inner js-file-line">    lintOptions {</td>
+      </tr>
+      <tr>
+        <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
+        <td id="LC117" class="blob-code blob-code-inner js-file-line">        <span class="pl-c"><span class="pl-c">//</span> for okio - https://github.com/square/okio/issues/58</span></td>
+      </tr>
+      <tr>
+        <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
+        <td id="LC118" class="blob-code blob-code-inner js-file-line">        warning <span class="pl-s"><span class="pl-pds">"</span>InvalidPackage<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
+        <td id="LC119" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
+        <td id="LC120" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
+        <td id="LC121" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
+        <td id="LC122" class="blob-code blob-code-inner js-file-line"><span class="pl-en">dependencies</span> {</td>
+      </tr>
+      <tr>
+        <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
+        <td id="LC123" class="blob-code blob-code-inner js-file-line">    compile <span class="pl-s"><span class="pl-pds">"</span>com.android.support:appcompat-v7:23.1.1<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
+        <td id="LC124" class="blob-code blob-code-inner js-file-line">    compile <span class="pl-s"><span class="pl-pds">'</span>com.squareup.okhttp:okhttp:2.7.0<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
+        <td id="LC125" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L126" class="blob-num js-line-number" data-line-number="126"></td>
+        <td id="LC126" class="blob-code blob-code-inner js-file-line">    testCompile <span class="pl-s"><span class="pl-pds">'</span>junit:junit:4.12<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L127" class="blob-num js-line-number" data-line-number="127"></td>
+        <td id="LC127" class="blob-code blob-code-inner js-file-line">    testCompile <span class="pl-s"><span class="pl-pds">'</span>com.squareup.assertj:assertj-android:1.1.1<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L128" class="blob-num js-line-number" data-line-number="128"></td>
+        <td id="LC128" class="blob-code blob-code-inner js-file-line">    testCompile <span class="pl-s"><span class="pl-pds">'</span>com.android.support:support-annotations:23.1.1<span class="pl-pds">'</span></span></td>
+      </tr>
+      <tr>
+        <td id="L129" class="blob-num js-line-number" data-line-number="129"></td>
+        <td id="LC129" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L130" class="blob-num js-line-number" data-line-number="130"></td>
+        <td id="LC130" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="L131" class="blob-num js-line-number" data-line-number="131"></td>
+        <td id="LC131" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L132" class="blob-num js-line-number" data-line-number="132"></td>
+        <td id="LC132" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">gitSha</span>() {</td>
+      </tr>
+      <tr>
+        <td id="L133" class="blob-num js-line-number" data-line-number="133"></td>
+        <td id="LC133" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> res <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>git rev-parse --short HEAD<span class="pl-pds">'</span></span><span class="pl-k">.</span>execute([], project<span class="pl-k">.</span>rootDir)<span class="pl-k">.</span>text<span class="pl-k">.</span>trim()</td>
+      </tr>
+      <tr>
+        <td id="L134" class="blob-num js-line-number" data-line-number="134"></td>
+        <td id="LC134" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">def</span> diff <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>git diff<span class="pl-pds">'</span></span><span class="pl-k">.</span>execute([], project<span class="pl-k">.</span>rootDir)<span class="pl-k">.</span>text<span class="pl-k">.</span>trim()</td>
+      </tr>
+      <tr>
+        <td id="L135" class="blob-num js-line-number" data-line-number="135"></td>
+        <td id="LC135" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (diff <span class="pl-k">!=</span> <span class="pl-c1">null</span> <span class="pl-k">&amp;&amp;</span> diff<span class="pl-k">.</span>length() <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {</td>
+      </tr>
+      <tr>
+        <td id="L136" class="blob-num js-line-number" data-line-number="136"></td>
+        <td id="LC136" class="blob-code blob-code-inner js-file-line">        res <span class="pl-k">+</span><span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>-dirty<span class="pl-pds">"</span></span></td>
+      </tr>
+      <tr>
+        <td id="L137" class="blob-num js-line-number" data-line-number="137"></td>
+        <td id="LC137" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="L138" class="blob-num js-line-number" data-line-number="138"></td>
+        <td id="LC138" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> res</td>
+      </tr>
+      <tr>
+        <td id="L139" class="blob-num js-line-number" data-line-number="139"></td>
+        <td id="LC139" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+      <tr>
+        <td id="L140" class="blob-num js-line-number" data-line-number="140"></td>
+        <td id="LC140" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="L141" class="blob-num js-line-number" data-line-number="141"></td>
+        <td id="LC141" class="blob-code blob-code-inner js-file-line"><span class="pl-k">def</span> <span class="pl-en">buildTime</span>() {</td>
+      </tr>
+      <tr>
+        <td id="L142" class="blob-num js-line-number" data-line-number="142"></td>
+        <td id="LC142" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-k">Date</span>()<span class="pl-k">.</span>format(<span class="pl-s"><span class="pl-pds">"</span>yyyy-MM-dd'T'HH:mm'Z'<span class="pl-pds">"</span></span>, <span class="pl-k">TimeZone</span><span class="pl-k">.</span>getTimeZone(<span class="pl-s"><span class="pl-pds">"</span>UTC<span class="pl-pds">"</span></span>))</td>
+      </tr>
+      <tr>
+        <td id="L143" class="blob-num js-line-number" data-line-number="143"></td>
+        <td id="LC143" class="blob-code blob-code-inner js-file-line">}</td>
+      </tr>
+</tbody></table>
