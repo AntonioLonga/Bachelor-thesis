@@ -11,9 +11,11 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser (description="Analisi di codice Smali")
     parser.add_argument ('-a', '--apk',  metavar='fileApk', type=str, nargs=1, required=False,
                          help='Specificare il file apk, questo verra disassemblato e poi analizato')
+    parser.add_argument ('-as','--apks', metavar='filesApk', type=str, nargs=1, required=False,
+                         help='Specificare il path contenente piu directory, verranno tutte disassmblate')
     parser.add_argument ('-d', '--disassembled',  metavar='disassembled', type=str, nargs=1, required=False,
                          help='Speficicare il file già disassemblato, questo verrà analizato')
-    parser.add_argument ('-di', '--directory', metavar='directory', nargs=1, required=False,
+    parser.add_argument ('-dir', '--directory', metavar='directory', nargs=1, required=False,
                          help='Specificare folder contenenti app disassemb. e crea un file result')
     args = parser.parse_args()
     # -------------------------------------------------------------------------------- #
@@ -43,6 +45,17 @@ if __name__ == '__main__':
             else:
                 bol=None
             print (str(tot)+"\t\t\t"+str(bol))
+        if(args.apks):
+            print ("hai scelto un folder con piu apk,salvo le app disistallate nel folder GENERATEOUTPUT")
+            folder =os.listdir(sys.argv[2])
+            for element in folder:
+                path=sys.argv[2]
+                pathInput=path+element
+                pathOutput=path+"GENERATEOUTPUT/"+element[0:-4]
+                print (pathOutput)
+                lancio=("./shell.sh "+pathInput+" "+pathOutput)
+                os.system(lancio)
+                
             
         
         if (args.disassembled):
